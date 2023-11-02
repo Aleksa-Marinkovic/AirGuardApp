@@ -33,6 +33,7 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     DataPage(),
     PartnerPage(),
+    
   ];
 
   @override
@@ -47,7 +48,6 @@ class _MainPageState extends State<MainPage> {
         centerTitle: true,
       ),
       body: _pages[_currentIndex],
-      
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Color.fromRGBO(65, 130, 69, 100),
         currentIndex: _currentIndex,
@@ -56,7 +56,6 @@ class _MainPageState extends State<MainPage> {
             _currentIndex = index;
           });
         },
-        // ignore: prefer_const_literals_to_create_immutables
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -70,9 +69,11 @@ class _MainPageState extends State<MainPage> {
             icon: Icon(Icons.group),
             label: 'Unsere Partner',
           ),
+          
         ],
         selectedItemColor: Colors.white,
       ),
+      
     );
   }
 }
@@ -194,8 +195,67 @@ class PartnerPage extends StatelessWidget {
     return Center(
       child: SingleChildScrollView(
         child: Column(
+          
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Padding(padding: EdgeInsets.only(top: 20)),
+            Text(
+              'About Us',
+              style: TextStyle(
+              fontSize: 24.0,
+              fontWeight: FontWeight.bold,
+              ),
+            ),
+            IconButton(
+              iconSize: 100,
+              icon: Image.asset(
+                'images/trisser.jpg',
+              ),
+              onPressed: () async {
+                await goToWebPage('https://pornhub.com'); // Hier fügst du den Link zur Webseite hinzu
+              },
+            ),
+            Divider(),
+            IconButton(
+              iconSize: 150,
+              icon: Image.asset(
+                'images/adragaschnig.jpg',
+                
+              ),
+              onPressed: () async {
+                await goToWebPage('https://pornhub.com'); // Hier fügst du den Link zur Webseite hinzu
+              },
+            ),
+            Divider(),
+            IconButton(
+              iconSize: 150,
+              icon: Image.asset(
+                'images/jertl.jpg',
+              ),
+              onPressed: () async{
+                await goToWebPage('https://www.tuwien.at'); // Hier fügst du den Link zur Webseite hinzu
+              },
+            ),
+            Divider(),
+            IconButton(
+              iconSize: 150,
+              icon: Image.asset(
+                'images/llatschbacher.jpg',
+              ),
+              onPressed: () async {
+                await goToWebPage('https://oead.at'); // Hier fügst du den Link zur Webseite hinzu
+              },
+            ),
+            Divider(),
+            IconButton(
+              iconSize: 150,
+              icon: Image.asset(
+                'images/amarinkovic.jpg',
+              ),
+              onPressed: () async {
+                await goToWebPage('https://oead.at'); // Hier fügst du den Link zur Webseite hinzu
+              },
+            ),
             IconButton(
               iconSize: 150,
               icon: Image.asset(
@@ -205,6 +265,7 @@ class PartnerPage extends StatelessWidget {
                 await goToWebPage('https://www.tgm.ac.at'); // Hier fügst du den Link zur Webseite hinzu
               },
             ),
+            Divider(),
             IconButton(
               iconSize: 150,
               icon: Image.asset(
@@ -215,6 +276,7 @@ class PartnerPage extends StatelessWidget {
                 await goToWebPage('https://www.bmbwf.gv.at'); // Hier fügst du den Link zur Webseite hinzu
               },
             ),
+            Divider(),
             IconButton(
               iconSize: 150,
               icon: Image.asset(
@@ -224,6 +286,7 @@ class PartnerPage extends StatelessWidget {
                 await goToWebPage('https://www.tuwien.at'); // Hier fügst du den Link zur Webseite hinzu
               },
             ),
+            Divider(),
             IconButton(
               iconSize: 150,
               icon: Image.asset(
@@ -239,3 +302,4 @@ class PartnerPage extends StatelessWidget {
     );
   }
 }
+
