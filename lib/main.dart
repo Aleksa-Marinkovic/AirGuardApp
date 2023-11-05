@@ -33,7 +33,6 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     DataPage(),
     PartnerPage(),
-    
   ];
 
   @override
@@ -42,8 +41,8 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(65, 130, 69, 100),
         title: Image.asset(
-          'images/airguard-logo.png', // Passe den Pfad entsprechend an
-          height: 50, // Passe die Höhe an
+          'images/airguard-logo.png',
+          height: 50,
         ),
         centerTitle: true,
       ),
@@ -69,11 +68,9 @@ class _MainPageState extends State<MainPage> {
             icon: Icon(Icons.group),
             label: 'Unsere Partner',
           ),
-          
         ],
         selectedItemColor: Colors.white,
       ),
-      
     );
   }
 }
@@ -83,7 +80,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Text('Inhalt der HomePage'),
-      
     );
   }
 }
@@ -94,88 +90,90 @@ class DataPage extends StatefulWidget {
 }
 
 class _DataPageState extends State<DataPage> {
-  String? selectedOption = 'Option 1';
+  final List<Map<String, dynamic>> _allSchools = [
+    {"id": 1, "name": "TGM", "address": "Wexstraße 17-19"},
+    {"id": 2, "name": "Schoo2", "address": "Street2"},
+    {"id": 3, "name": "Schoo2", "address": "Street2"},
+    {"id": 4, "name": "Schoo2", "address": "Street2"},
+    {"id": 5, "name": "Schoo2", "address": "Street2"},
+    {"id": 6, "name": "Schoo2", "address": "Street2"},
+  ];
+
+  List<Map<String, dynamic>> _foundSchools = [];
+  @override
+  initState() {
+    _foundSchools = _allSchools;
+    super.initState();
+  }
+
+  void _runFilter(String enteredKeyword) {
+    if (enteredKeyword.isEmpty) {
+      // Wenn das Suchfeld leer ist, zeige alle Schulen an
+      setState(() {
+        _foundSchools = _allSchools;
+      });
+    } else {
+      // Filtere die Schulen nach dem eingegebenen Schlüsselwort
+      setState(() {
+        _foundSchools = _allSchools
+            .where((school) => school["name"]
+                .toLowerCase()
+                .contains(enteredKeyword.toLowerCase()))
+            .toList();
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Center(
-        child: Column(
-          children: [
-            DropdownButton<String>(
-              value: selectedOption,
-              onChanged: (String? value) {
-                setState(() {
-                  selectedOption = value;
-                });
-              },
-              items: <String>[
-                'Option 1',
-                'Option 2',
-                'Option 3',
-                'Option 4',
-                'Option 5',
-                'Option 6',
-              ].map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
-            ),
-            Padding(padding: EdgeInsets.only(top: 60)),
-            const Card(
-              color: Color.fromRGBO(225, 225, 225, 100),
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                side: BorderSide(color: Colors.black),
-                borderRadius: BorderRadius.all(Radius.circular(12)),
-              ),
-              child: SizedBox(
-                width: 270,
-                height: 100,
-                child: Center(
-                    child: Text(
-                  "Temp:",
-                  style: TextStyle(fontSize: 20),
-                )),
-              ),
-            ),
-            Padding(padding: EdgeInsets.only(top: 20)),
-            const Card(
-              color: Color.fromRGBO(225, 225, 225, 100),
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                side: BorderSide(color: Colors.black),
-                borderRadius: BorderRadius.all(Radius.circular(12)),
-              ),
-              child: SizedBox(
-                width: 270,
-                height: 100,
-                child: Center(
-                    child: Text("Luftfeuchte:", style: TextStyle(fontSize: 20))),
-              ),
-            ),
-            Padding(padding: EdgeInsets.only(top: 20)),
-            const Card(
-              color: Color.fromRGBO(225, 225, 225, 100),
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                side: BorderSide(color: Colors.black),
-                borderRadius: BorderRadius.all(Radius.circular(12)),
-              ),
-              child: SizedBox(
-                width: 270,
-                height: 100,
-                child: Center(
-                    child: Text(
-                  "CO2:",
-                  style: TextStyle(fontSize: 20),
-                )),
-              ),
-            ),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 20,
+          ),
+          TextField(
+            onChanged: (value) => _runFilter(value),
+            decoration: const InputDecoration(
+                labelText: 'Search', suffixIcon: Icon(Icons.search)),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Expanded(
+            child: _foundSchools.isNotEmpty
+                ? ListView.builder(
+                    itemCount: _foundSchools.length,
+                    itemBuilder: (context, index) => Card(
+                      key: ValueKey(_foundSchools[index]["id"]),
+                      color: Color.fromRGBO(65, 130, 69, 100),
+                      elevation: 4,
+                      shape: RoundedRectangleBorder(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(20)),
+                      ),
+                      margin: const EdgeInsets.symmetric(vertical: 10),
+                      child: ListTile(
+                        leading: Text(
+                          _foundSchools[index]["id"].toString(),
+                          style: const TextStyle(
+                              fontSize: 24, color: Colors.white),
+                        ),
+                        title: Text(_foundSchools[index]['name'],
+                            style: TextStyle(color: Colors.white)),
+                        subtitle: Text(
+                            '${_foundSchools[index]["address"].toString()}',
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                    ),
+                  )
+                : const Text(
+                    'No results found',
+                    style: TextStyle(fontSize: 24),
+                  ),
+          ),
+        ],
       ),
     );
   }
@@ -183,27 +181,26 @@ class _DataPageState extends State<DataPage> {
 
 class PartnerPage extends StatelessWidget {
   goToWebPage(String urlString) async {
-   if(await canLaunch(urlString)){
-    await launch(urlString);
-   } else {
-    throw 'Webseite $urlString konnte nicht geladen werden';
-   }
-}
+    if (await canLaunch(urlString)) {
+      await launch(urlString);
+    } else {
+      throw 'Webseite $urlString konnte nicht geladen werden';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: SingleChildScrollView(
         child: Column(
-          
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Padding(padding: EdgeInsets.only(top: 20)),
             Text(
               'About Us',
               style: TextStyle(
-              fontSize: 24.0,
-              fontWeight: FontWeight.bold,
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
               ),
             ),
             IconButton(
@@ -212,7 +209,8 @@ class PartnerPage extends StatelessWidget {
                 'images/trisser.jpg',
               ),
               onPressed: () async {
-                await goToWebPage('https://pornhub.com'); // Hier fügst du den Link zur Webseite hinzu
+                await goToWebPage(
+                    'https://pornhub.com'); // Hier fügst du den Link zur Webseite hinzu
               },
             ),
             Divider(),
@@ -220,10 +218,10 @@ class PartnerPage extends StatelessWidget {
               iconSize: 150,
               icon: Image.asset(
                 'images/adragaschnig.jpg',
-                
               ),
               onPressed: () async {
-                await goToWebPage('https://pornhub.com'); // Hier fügst du den Link zur Webseite hinzu
+                await goToWebPage(
+                    'https://pornhub.com'); // Hier fügst du den Link zur Webseite hinzu
               },
             ),
             Divider(),
@@ -232,8 +230,9 @@ class PartnerPage extends StatelessWidget {
               icon: Image.asset(
                 'images/jertl.jpg',
               ),
-              onPressed: () async{
-                await goToWebPage('https://www.tuwien.at'); // Hier fügst du den Link zur Webseite hinzu
+              onPressed: () async {
+                await goToWebPage(
+                    'https://www.tuwien.at'); // Hier fügst du den Link zur Webseite hinzu
               },
             ),
             Divider(),
@@ -243,7 +242,8 @@ class PartnerPage extends StatelessWidget {
                 'images/llatschbacher.jpg',
               ),
               onPressed: () async {
-                await goToWebPage('https://oead.at'); // Hier fügst du den Link zur Webseite hinzu
+                await goToWebPage(
+                    'https://oead.at'); // Hier fügst du den Link zur Webseite hinzu
               },
             ),
             Divider(),
@@ -253,7 +253,8 @@ class PartnerPage extends StatelessWidget {
                 'images/amarinkovic.jpg',
               ),
               onPressed: () async {
-                await goToWebPage('https://oead.at'); // Hier fügst du den Link zur Webseite hinzu
+                await goToWebPage(
+                    'https://oead.at'); // Hier fügst du den Link zur Webseite hinzu
               },
             ),
             IconButton(
@@ -262,7 +263,8 @@ class PartnerPage extends StatelessWidget {
                 'images/TGM_Logo.png',
               ),
               onPressed: () async {
-                await goToWebPage('https://www.tgm.ac.at'); // Hier fügst du den Link zur Webseite hinzu
+                await goToWebPage(
+                    'https://www.tgm.ac.at'); // Hier fügst du den Link zur Webseite hinzu
               },
             ),
             Divider(),
@@ -270,10 +272,10 @@ class PartnerPage extends StatelessWidget {
               iconSize: 150,
               icon: Image.asset(
                 'images/BMBWF_Logo_srgb.png',
-                
               ),
               onPressed: () async {
-                await goToWebPage('https://www.bmbwf.gv.at'); // Hier fügst du den Link zur Webseite hinzu
+                await goToWebPage(
+                    'https://www.bmbwf.gv.at'); // Hier fügst du den Link zur Webseite hinzu
               },
             ),
             Divider(),
@@ -282,8 +284,9 @@ class PartnerPage extends StatelessWidget {
               icon: Image.asset(
                 'images/TU-Logo-Austria_CMYK.png',
               ),
-              onPressed: () async{
-                await goToWebPage('https://www.tuwien.at'); // Hier fügst du den Link zur Webseite hinzu
+              onPressed: () async {
+                await goToWebPage(
+                    'https://www.tuwien.at'); // Hier fügst du den Link zur Webseite hinzu
               },
             ),
             Divider(),
@@ -293,7 +296,8 @@ class PartnerPage extends StatelessWidget {
                 'images/OeAD_LogoUnterzeile_DE_RGB.png',
               ),
               onPressed: () async {
-                await goToWebPage('https://oead.at'); // Hier fügst du den Link zur Webseite hinzu
+                await goToWebPage(
+                    'https://oead.at'); // Hier fügst du den Link zur Webseite hinzu
               },
             ),
           ],
@@ -302,4 +306,3 @@ class PartnerPage extends StatelessWidget {
     );
   }
 }
-

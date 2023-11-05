@@ -1,151 +1,151 @@
 -- Merging decision tree log ---
 application
-INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:3:4-34:19
-MERGED from [:url_launcher_android] C:\Users\Asus\Documents\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-14:19
-MERGED from [:url_launcher_android] C:\Users\Asus\Documents\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-14:19
-MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
-MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
-MERGED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:28:5-89
-MERGED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:28:5-89
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Asus\.gradle\caches\transforms-3\47a2748039695de3f72537f9b6c6e659\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Asus\.gradle\caches\transforms-3\47a2748039695de3f72537f9b6c6e659\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:3:4-34:19
+MERGED from [:url_launcher_android] D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-14:19
+MERGED from [:url_launcher_android] D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-14:19
+MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\ppayp\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\ppayp\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:24:5-31:19
+MERGED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:28:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\ppayp\.gradle\caches\transforms-3\47a2748039695de3f72537f9b6c6e659\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\ppayp\.gradle\caches\transforms-3\47a2748039695de3f72537f9b6c6e659\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:28:18-86
+		ADDED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:28:18-86
 	android:name
-		INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
 manifest
-ADDED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:1-35:12
-INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:1-35:12
-INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:1-35:12
-INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:1-35:12
-MERGED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:1-35:12
-MERGED from [:url_launcher_android] C:\Users\Asus\Documents\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-16:12
-MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\10db1fe4e5707ed2ca43e89144ed0f10\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:17:1-23:12
-MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:17:1-33:12
-MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\Asus\.gradle\caches\transforms-3\9ddcf2f72c5335e1f987401e1a28d00f\transformed\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\56faf1924dc689b6a1f005795b69d5f9\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\7f20beac89fd0c236f9fdb0a5aa43033\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.activity:activity:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\cb6b8e2fa87c344a3e50fa40be0fb6d9\transformed\jetified-activity-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\db2a222ff8bbdc4f07279a981b903bba\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:17:1-30:12
-MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\ddc0646916fd375d3a8adc6d20f5ebf1\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\Asus\.gradle\caches\transforms-3\d552b7336dae4c764e5c7da6e0def973\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\e182b10e8a5c0b107eb8dda8b3297f18\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Asus\.gradle\caches\transforms-3\47a2748039695de3f72537f9b6c6e659\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\40d23071954e4a5e5fe394de42970aeb\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Asus\.gradle\caches\transforms-3\071a7978413a31835696da94472b5b64\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Asus\.gradle\caches\transforms-3\19f9b7048ce34ad97d0dccad2a653d36\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Asus\.gradle\caches\transforms-3\acac902d0b2371bfcd45eefc676ae721\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\Asus\.gradle\caches\transforms-3\4c9562980e1f94ba69c8a415908433ff\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\Asus\.gradle\caches\transforms-3\bfcf015d764755abe4a63cbd530e11e5\transformed\jetified-annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
-INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml:1:1-8:12
-INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml:1:1-8:12
-INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml:1:1-8:12
+ADDED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:1-35:12
+INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:1-35:12
+MERGED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:1-35:12
+MERGED from [:url_launcher_android] D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-16:12
+MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\ppayp\.gradle\caches\transforms-3\10db1fe4e5707ed2ca43e89144ed0f10\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:17:1-23:12
+MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\ppayp\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\ppayp\.gradle\caches\transforms-3\9ddcf2f72c5335e1f987401e1a28d00f\transformed\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\56faf1924dc689b6a1f005795b69d5f9\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\7f20beac89fd0c236f9fdb0a5aa43033\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\cb6b8e2fa87c344a3e50fa40be0fb6d9\transformed\jetified-activity-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\db2a222ff8bbdc4f07279a981b903bba\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\ddc0646916fd375d3a8adc6d20f5ebf1\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\ppayp\.gradle\caches\transforms-3\d552b7336dae4c764e5c7da6e0def973\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\e182b10e8a5c0b107eb8dda8b3297f18\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\ppayp\.gradle\caches\transforms-3\47a2748039695de3f72537f9b6c6e659\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\40d23071954e4a5e5fe394de42970aeb\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\071a7978413a31835696da94472b5b64\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\19f9b7048ce34ad97d0dccad2a653d36\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\ppayp\.gradle\caches\transforms-3\acac902d0b2371bfcd45eefc676ae721\transformed\core-runtime-2.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\ppayp\.gradle\caches\transforms-3\4c9562980e1f94ba69c8a415908433ff\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\ppayp\.gradle\caches\transforms-3\bfcf015d764755abe4a63cbd530e11e5\transformed\jetified-annotation-experimental-1.3.0\AndroidManifest.xml:17:1-22:12
+INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml:1:1-8:12
+INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml:1:1-8:12
+INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml:1:1-8:12
 	package
-		ADDED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:2:5-35
-		INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml
+		ADDED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:2:5-35
+		INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:1-35:12
-		INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml
+		INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:1-35:12
+		INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:1-35:12
-		INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml
+		INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
+		ADDED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:1-35:12
+		INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:11-69
+		ADDED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:1:11-69
 uses-sdk
-INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
-MERGED from [:url_launcher_android] C:\Users\Asus\Documents\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:url_launcher_android] C:\Users\Asus\Documents\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\10db1fe4e5707ed2ca43e89144ed0f10\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
-MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\10db1fe4e5707ed2ca43e89144ed0f10\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
-MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\Asus\.gradle\caches\transforms-3\9ddcf2f72c5335e1f987401e1a28d00f\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\Asus\.gradle\caches\transforms-3\9ddcf2f72c5335e1f987401e1a28d00f\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\56faf1924dc689b6a1f005795b69d5f9\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\56faf1924dc689b6a1f005795b69d5f9\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\7f20beac89fd0c236f9fdb0a5aa43033\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.loader:loader:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\7f20beac89fd0c236f9fdb0a5aa43033\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.activity:activity:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\cb6b8e2fa87c344a3e50fa40be0fb6d9\transformed\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.activity:activity:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\cb6b8e2fa87c344a3e50fa40be0fb6d9\transformed\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\db2a222ff8bbdc4f07279a981b903bba\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.customview:customview:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\db2a222ff8bbdc4f07279a981b903bba\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:20:5-44
-MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\ddc0646916fd375d3a8adc6d20f5ebf1\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\ddc0646916fd375d3a8adc6d20f5ebf1\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\Asus\.gradle\caches\transforms-3\d552b7336dae4c764e5c7da6e0def973\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\Asus\.gradle\caches\transforms-3\d552b7336dae4c764e5c7da6e0def973\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\e182b10e8a5c0b107eb8dda8b3297f18\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\e182b10e8a5c0b107eb8dda8b3297f18\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Asus\.gradle\caches\transforms-3\47a2748039695de3f72537f9b6c6e659\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\Asus\.gradle\caches\transforms-3\47a2748039695de3f72537f9b6c6e659\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\40d23071954e4a5e5fe394de42970aeb\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\Asus\.gradle\caches\transforms-3\40d23071954e4a5e5fe394de42970aeb\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Asus\.gradle\caches\transforms-3\071a7978413a31835696da94472b5b64\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\Asus\.gradle\caches\transforms-3\071a7978413a31835696da94472b5b64\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Asus\.gradle\caches\transforms-3\19f9b7048ce34ad97d0dccad2a653d36\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\Asus\.gradle\caches\transforms-3\19f9b7048ce34ad97d0dccad2a653d36\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Asus\.gradle\caches\transforms-3\acac902d0b2371bfcd45eefc676ae721\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\Asus\.gradle\caches\transforms-3\acac902d0b2371bfcd45eefc676ae721\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\Asus\.gradle\caches\transforms-3\4c9562980e1f94ba69c8a415908433ff\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\Asus\.gradle\caches\transforms-3\4c9562980e1f94ba69c8a415908433ff\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\Asus\.gradle\caches\transforms-3\bfcf015d764755abe4a63cbd530e11e5\transformed\jetified-annotation-experimental-1.3.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\Asus\.gradle\caches\transforms-3\bfcf015d764755abe4a63cbd530e11e5\transformed\jetified-annotation-experimental-1.3.0\AndroidManifest.xml:20:5-44
-INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml
-INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml
+INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
+INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
+MERGED from [:url_launcher_android] D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:url_launcher_android] D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\ppayp\.gradle\caches\transforms-3\10db1fe4e5707ed2ca43e89144ed0f10\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.window:window-java:1.0.0-beta04] C:\Users\ppayp\.gradle\caches\transforms-3\10db1fe4e5707ed2ca43e89144ed0f10\transformed\jetified-window-java-1.0.0-beta04\AndroidManifest.xml:19:5-21:41
+MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\ppayp\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.window:window:1.0.0-beta04] C:\Users\ppayp\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\ppayp\.gradle\caches\transforms-3\9ddcf2f72c5335e1f987401e1a28d00f\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\ppayp\.gradle\caches\transforms-3\9ddcf2f72c5335e1f987401e1a28d00f\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\56faf1924dc689b6a1f005795b69d5f9\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\56faf1924dc689b6a1f005795b69d5f9\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\7f20beac89fd0c236f9fdb0a5aa43033\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\7f20beac89fd0c236f9fdb0a5aa43033\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\cb6b8e2fa87c344a3e50fa40be0fb6d9\transformed\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\cb6b8e2fa87c344a3e50fa40be0fb6d9\transformed\jetified-activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\db2a222ff8bbdc4f07279a981b903bba\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\db2a222ff8bbdc4f07279a981b903bba\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\ddc0646916fd375d3a8adc6d20f5ebf1\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\ddc0646916fd375d3a8adc6d20f5ebf1\transformed\jetified-tracing-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\ppayp\.gradle\caches\transforms-3\d552b7336dae4c764e5c7da6e0def973\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.3.1] C:\Users\ppayp\.gradle\caches\transforms-3\d552b7336dae4c764e5c7da6e0def973\transformed\lifecycle-runtime-2.3.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\e182b10e8a5c0b107eb8dda8b3297f18\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\e182b10e8a5c0b107eb8dda8b3297f18\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\ppayp\.gradle\caches\transforms-3\47a2748039695de3f72537f9b6c6e659\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\ppayp\.gradle\caches\transforms-3\47a2748039695de3f72537f9b6c6e659\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\40d23071954e4a5e5fe394de42970aeb\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\40d23071954e4a5e5fe394de42970aeb\transformed\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\071a7978413a31835696da94472b5b64\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\071a7978413a31835696da94472b5b64\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\19f9b7048ce34ad97d0dccad2a653d36\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\ppayp\.gradle\caches\transforms-3\19f9b7048ce34ad97d0dccad2a653d36\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\ppayp\.gradle\caches\transforms-3\acac902d0b2371bfcd45eefc676ae721\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] C:\Users\ppayp\.gradle\caches\transforms-3\acac902d0b2371bfcd45eefc676ae721\transformed\core-runtime-2.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\ppayp\.gradle\caches\transforms-3\4c9562980e1f94ba69c8a415908433ff\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\ppayp\.gradle\caches\transforms-3\4c9562980e1f94ba69c8a415908433ff\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\ppayp\.gradle\caches\transforms-3\bfcf015d764755abe4a63cbd530e11e5\transformed\jetified-annotation-experimental-1.3.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] C:\Users\ppayp\.gradle\caches\transforms-3\bfcf015d764755abe4a63cbd530e11e5\transformed\jetified-annotation-experimental-1.3.0\AndroidManifest.xml:20:5-44
+INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml
+INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml
+		INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml
+		INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml:7:5-66
+ADDED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml:7:5-66
 	android:name
-		ADDED from C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml:7:22-64
+		ADDED from D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\android\app\src\debug\AndroidManifest.xml:7:22-64
 activity#io.flutter.plugins.urllauncher.WebViewActivity
-ADDED from [:url_launcher_android] C:\Users\Asus\Documents\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-13:74
+ADDED from [:url_launcher_android] D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-13:74
 	android:exported
-		ADDED from [:url_launcher_android] C:\Users\Asus\Documents\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
+		ADDED from [:url_launcher_android] D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-37
 	android:theme
-		ADDED from [:url_launcher_android] C:\Users\Asus\Documents\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-71
+		ADDED from [:url_launcher_android] D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-71
 	android:name
-		ADDED from [:url_launcher_android] C:\Users\Asus\Documents\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
+		ADDED from [:url_launcher_android] D:\Users\ppayp\Dokumente\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-74
 uses-library#androidx.window.extensions
-ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\ppayp\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
 	android:required
-		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\ppayp\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
 	android:name
-		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\ppayp\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
 uses-library#androidx.window.sidecar
-ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\ppayp\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
 	android:required
-		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\ppayp\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
 	android:name
-		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+		ADDED from [androidx.window:window:1.0.0-beta04] C:\Users\ppayp\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
 permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
+ADDED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
 	android:protectionLevel
-		ADDED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
+		ADDED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
 	android:name
-		ADDED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:23:9-81
+		ADDED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:23:9-81
 permission#com.example.airguard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
+ADDED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
 	android:protectionLevel
-		ADDED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
+		ADDED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
 	android:name
-		ADDED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:23:9-81
+		ADDED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:23:9-81
 uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
+ADDED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
 	android:name
-		ADDED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:26:22-94
+		ADDED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:26:22-94
 uses-permission#com.example.airguard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
-ADDED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
+ADDED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
 	android:name
-		ADDED from [androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:26:22-94
+		ADDED from [androidx.core:core:1.10.1] C:\Users\ppayp\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:26:22-94
