@@ -92,11 +92,11 @@ class DataPage extends StatefulWidget {
 class _DataPageState extends State<DataPage> {
   final List<Map<String, dynamic>> _allSchools = [
     {"id": 1, "name": "TGM", "address": "Wexstraße 17-19"},
-    {"id": 2, "name": "Schoo2", "address": "Street2"},
-    {"id": 3, "name": "Schoo2", "address": "Street2"},
-    {"id": 4, "name": "Schoo2", "address": "Street2"},
-    {"id": 5, "name": "Schoo2", "address": "Street2"},
-    {"id": 6, "name": "Schoo2", "address": "Street2"},
+    {"id": 2, "name": "Schule2", "address": "Adresse2"},
+    {"id": 3, "name": "Schule3", "address": "Adresse3"},
+    {"id": 4, "name": "Schule4", "address": "Adresse4"},
+    {"id": 5, "name": "Schule5", "address": "Adresse5"},
+    {"id": 6, "name": "Schule6", "address": "Adresse6"},
   ];
 
   List<Map<String, dynamic>> _foundSchools = [];
@@ -147,7 +147,7 @@ class _DataPageState extends State<DataPage> {
                     itemCount: _foundSchools.length,
                     itemBuilder: (context, index) => Card(
                       key: ValueKey(_foundSchools[index]["id"]),
-                      color: Color.fromRGBO(65, 130, 69, 100),
+                      color: Color.fromRGBO(150, 150, 150, 100),
                       elevation: 4,
                       shape: RoundedRectangleBorder(
                         borderRadius:
@@ -165,6 +165,17 @@ class _DataPageState extends State<DataPage> {
                         subtitle: Text(
                             '${_foundSchools[index]["address"].toString()}',
                             style: TextStyle(color: Colors.white)),
+                        trailing: IconButton(
+                          icon: Icon(Icons.arrow_forward),
+                          color: Colors.white,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DetailPage()),
+                            );
+                          },
+                        ),
                       ),
                     ),
                   )
@@ -174,6 +185,67 @@ class _DataPageState extends State<DataPage> {
                   ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class DetailPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(65, 130, 69, 100),
+        title: Image.asset(
+          'images/airguard-logo.png',
+          height: 50,
+        ),
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Card(
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.black),
+                  borderRadius: const BorderRadius.all(Radius.circular(12)),
+                ),
+                child: const SizedBox(
+                  width: 300,
+                  height: 100,
+                  child: Center(child: Text('Outlined Card')),
+                ),
+              ),
+              Card(
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.black),
+                  borderRadius: const BorderRadius.all(Radius.circular(12)),
+                ),
+                child: const SizedBox(
+                  width: 300,
+                  height: 100,
+                  child: Center(child: Text('Outlined Card')),
+                ),
+              ),
+              Card(
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  side: BorderSide(color: Colors.black),
+                  borderRadius: const BorderRadius.all(Radius.circular(12)),
+                ),
+                child: const SizedBox(
+                  width: 300,
+                  height: 100,
+                  child: Center(child: Text('Outlined Card')),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -197,65 +269,11 @@ class PartnerPage extends StatelessWidget {
           children: <Widget>[
             Padding(padding: EdgeInsets.only(top: 20)),
             Text(
-              'About Us',
+              'Unsere Partner',
               style: TextStyle(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,
               ),
-            ),
-            IconButton(
-              iconSize: 100,
-              icon: Image.asset(
-                'images/trisser.jpg',
-              ),
-              onPressed: () async {
-                await goToWebPage(
-                    'https://pornhub.com'); // Hier fügst du den Link zur Webseite hinzu
-              },
-            ),
-            Divider(),
-            IconButton(
-              iconSize: 150,
-              icon: Image.asset(
-                'images/adragaschnig.jpg',
-              ),
-              onPressed: () async {
-                await goToWebPage(
-                    'https://pornhub.com'); // Hier fügst du den Link zur Webseite hinzu
-              },
-            ),
-            Divider(),
-            IconButton(
-              iconSize: 150,
-              icon: Image.asset(
-                'images/jertl.jpg',
-              ),
-              onPressed: () async {
-                await goToWebPage(
-                    'https://www.tuwien.at'); // Hier fügst du den Link zur Webseite hinzu
-              },
-            ),
-            Divider(),
-            IconButton(
-              iconSize: 150,
-              icon: Image.asset(
-                'images/llatschbacher.jpg',
-              ),
-              onPressed: () async {
-                await goToWebPage(
-                    'https://oead.at'); // Hier fügst du den Link zur Webseite hinzu
-              },
-            ),
-            Divider(),
-            IconButton(
-              iconSize: 150,
-              icon: Image.asset(
-                'images/amarinkovic.jpg',
-              ),
-              onPressed: () async {
-                await goToWebPage(
-                    'https://oead.at'); // Hier fügst du den Link zur Webseite hinzu
-              },
             ),
             IconButton(
               iconSize: 150,

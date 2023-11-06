@@ -1,4 +1,4 @@
-#Sat Nov 04 18:42:17 CET 2023
+#Mon Nov 06 11:59:34 CET 2023
 base.0=D\:\\Users\\ppayp\\Dokumente\\GitHub\\AirGuardApp\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
