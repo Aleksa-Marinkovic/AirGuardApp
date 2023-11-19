@@ -3,6 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 void main() {
   SystemChrome.setPreferredOrientations([
@@ -76,10 +78,51 @@ class _MainPageState extends State<MainPage> {
 }
 
 class HomePage extends StatelessWidget {
+  _launchURL(String urlString) async {
+    if (await canLaunch(urlString)) {
+      await launch(urlString);
+    } else {
+      throw 'Webseite $urlString konnte nicht geladen werden';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Inhalt der HomePage'),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          const SizedBox(height: 30),
+          Text(
+            'Willkommen zur AirGuard-App!',
+            style: TextStyle(
+              fontSize: 24.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 30),
+          ListTile(
+            leading: Icon(Icons.info),
+            title: Text('Über uns'),
+            subtitle: Text('Erfahre mehr über AirGuard und unser Projekt.'),
+            onTap: () {
+              _launchURL('https://app.recyclingheroes.at/about');
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.email),
+            title: Text('Kontaktiere uns'),
+            subtitle:
+                Text('Bei Fragen oder Feedback stehen wir zur Verfügung.'),
+            onTap: () {
+              _launchURL('mailto:info@airguard-app.com');
+            },
+          ),
+          const SizedBox(height: 20),
+        ],
+      ),
     );
   }
 }
@@ -169,10 +212,14 @@ class _DataPageState extends State<DataPage> {
                           icon: Icon(Icons.arrow_forward),
                           color: Colors.white,
                           onPressed: () {
+                            // Speichern der ausgewählten ID
+                            int selectedId = _foundSchools[index]["id"];
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => DetailPage()),
+                                builder: (context) =>
+                                    DetailPage(selectedId: selectedId),
+                              ),
                             );
                           },
                         ),
@@ -190,7 +237,47 @@ class _DataPageState extends State<DataPage> {
   }
 }
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
+  final int selectedId;
+
+  DetailPage({required this.selectedId});
+
+  @override
+  _DetailPageState createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  Map<String, dynamic> sensorData = {}; // Hier werden die Daten gespeichert
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData(widget.selectedId); // Daten laden, wenn die Seite erstellt wird
+  }
+
+  Future<void> fetchData(int id) async {
+    try {
+      var url = Uri.parse('https://app.recyclingheroes.at:5000/getData');
+      var response = await http.post(
+        url,
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'Controller_ID': id.toString()}),
+      );
+
+      if (response.statusCode == 200) {
+        var data = jsonDecode(response.body);
+        setState(() {
+          sensorData = data;
+        });
+      } else {
+        print('Request failed with status: ${response.statusCode}');
+        print('Response: ${response.body}');
+      }
+    } catch (error) {
+      print('Error fetching data: $error');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -207,40 +294,61 @@ class DetailPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              const Padding(padding: EdgeInsets.only(top: 100)),
               Card(
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   side: BorderSide(color: Colors.black),
-                  borderRadius: const BorderRadius.all(Radius.circular(12)),
+                  borderRadius: const BorderRadius.all(Radius.circular(24)),
                 ),
-                child: const SizedBox(
-                  width: 300,
-                  height: 100,
-                  child: Center(child: Text('Outlined Card')),
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(40),
+                    child: Text(
+                      sensorData.isNotEmpty
+                          ? "Temperatur: ${sensorData['Temperature']}°C"
+                          : 'No data available',
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                  ),
                 ),
               ),
+              const Padding(padding: EdgeInsets.only(top: 10)),
               Card(
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   side: BorderSide(color: Colors.black),
-                  borderRadius: const BorderRadius.all(Radius.circular(12)),
+                  borderRadius: const BorderRadius.all(Radius.circular(24)),
                 ),
-                child: const SizedBox(
-                  width: 300,
-                  height: 100,
-                  child: Center(child: Text('Outlined Card')),
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(40),
+                    child: Text(
+                      sensorData.isNotEmpty
+                          ? "Luftfeuchtigkeit: ${sensorData['Humidity']}g/m^3"
+                          : 'No data available',
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                  ),
                 ),
               ),
+              const Padding(padding: EdgeInsets.only(top: 10)),
               Card(
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   side: BorderSide(color: Colors.black),
-                  borderRadius: const BorderRadius.all(Radius.circular(12)),
+                  borderRadius: const BorderRadius.all(Radius.circular(24)),
                 ),
-                child: const SizedBox(
-                  width: 300,
-                  height: 100,
-                  child: Center(child: Text('Outlined Card')),
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(40),
+                    child: Text(
+                      sensorData.isNotEmpty
+                          ? "CO2: ${sensorData['CO2']}ppm"
+                          : 'No data available',
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                  ),
                 ),
               ),
             ],
