@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -18,10 +19,84 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MainPage(),
+      home: LoginPage(),
     );
   }
 }
+class LoginPage extends StatelessWidget {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(65, 130, 69, 100),
+        title: Image.asset(
+          'images/airguard-logo.png',
+          height: 50,
+        ),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            TextFormField(
+              controller: _usernameController,
+              decoration: InputDecoration(
+                labelText: 'Benutzername',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+            TextFormField(
+              controller: _passwordController,
+              obscureText: true,
+              decoration: InputDecoration(
+                labelText: 'Passwort',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Hier füge deine Authentifizierungslogik ein
+                // Beispiel: Überprüfung von Benutzername und Passwort
+                String username = _usernameController.text.trim();
+                String password = _passwordController.text.trim();
+
+                // Beispiel: Wenn Benutzername und Passwort stimmen, navigiere zur Hauptseite
+                if (username == 'tgm' && password == 'tgm') {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => MainPage()),
+                  );
+                } else {
+                  // Anzeige einer Fehlermeldung oder anderen Aktion bei fehlgeschlagenem Login
+                  // Beispiel: Anzeige einer SnackBar
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Ungültige Anmeldeinformationen'),
+                      duration: Duration(seconds: 3),
+                    ),
+                  );
+                }
+              },
+              child: Text('Login'),
+               style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromRGBO(65, 130, 69, 100), // Change the button's background color here
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 
 class MainPage extends StatefulWidget {
   @override
@@ -57,7 +132,7 @@ class _MainPageState extends State<MainPage> {
             _currentIndex = index;
           });
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
@@ -94,33 +169,67 @@ class HomePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           const SizedBox(height: 30),
-          Text(
-            'Willkommen zur AirGuard-App!',
+          const Text(
+            'Über uns',
             style: TextStyle(
               fontSize: 24.0,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const SizedBox(height: 30),
-          ListTile(
-            leading: Icon(Icons.info),
-            title: Text('Über uns'),
-            subtitle: Text('Erfahre mehr über AirGuard und unser Projekt.'),
-            onTap: () {
-              _launchURL('https://app.recyclingheroes.at/about');
-            },
-          ),
+          // Hier kannst du die kreisförmigen Bilder mit Beschreibungen einfügen
+          _buildTeamSection(),
           Divider(),
           ListTile(
-            leading: Icon(Icons.email),
-            title: Text('Kontaktiere uns'),
+            leading: const Icon(Icons.email),
+            title: const Text('Kontaktiere uns'),
             subtitle:
-                Text('Bei Fragen oder Feedback stehen wir zur Verfügung.'),
+                const Text('Bei Fragen oder Feedback stehen wir zur Verfügung.'),
             onTap: () {
               _launchURL('mailto:info@airguard-app.com');
             },
           ),
-          const SizedBox(height: 20),
+          
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTeamSection() {
+    return Column(
+      children: [
+        _buildTeamMember(
+          image: 'images/trisser.png',
+          description: 'Timo Risser - Projektleiter',
+        ),
+        _buildTeamMember(
+          image: 'images/llatschbacher.png',
+          description: 'Lukas Latschbacher - Backend Developer',
+        ),
+        _buildTeamMember(
+          image: 'images/jertl.png',
+          description: 'Jakob Ertl - Arduino Designer und Developer',
+        ),
+        _buildTeamMember(
+          image: 'images/adragschnigg.png',
+          description: 'Andreas Dragaschnigg - Web developer',
+        ),
+        // Füge weitere Teammitglieder hier hinzu
+      ],
+    );
+  }
+
+  Widget _buildTeamMember({required String image, required String description}) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10.0),
+      child: Column(
+        children: [
+          CircleAvatar(
+            radius: 70,
+            backgroundImage: AssetImage(image),
+          ),
+          const SizedBox(height: 10),
+          Text(description),
         ],
       ),
     );
@@ -135,11 +244,6 @@ class DataPage extends StatefulWidget {
 class _DataPageState extends State<DataPage> {
   final List<Map<String, dynamic>> _allSchools = [
     {"id": 1, "name": "TGM", "address": "Wexstraße 17-19"},
-    {"id": 2, "name": "Schule2", "address": "Adresse2"},
-    {"id": 3, "name": "Schule3", "address": "Adresse3"},
-    {"id": 4, "name": "Schule4", "address": "Adresse4"},
-    {"id": 5, "name": "Schule5", "address": "Adresse5"},
-    {"id": 6, "name": "Schule6", "address": "Adresse6"},
   ];
 
   List<Map<String, dynamic>> _foundSchools = [];
@@ -192,9 +296,9 @@ class _DataPageState extends State<DataPage> {
                       key: ValueKey(_foundSchools[index]["id"]),
                       color: Color.fromRGBO(150, 150, 150, 100),
                       elevation: 4,
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                         borderRadius:
-                            const BorderRadius.all(Radius.circular(20)),
+                            BorderRadius.all(Radius.circular(20)),
                       ),
                       margin: const EdgeInsets.symmetric(vertical: 10),
                       child: ListTile(
@@ -240,7 +344,7 @@ class _DataPageState extends State<DataPage> {
 class DetailPage extends StatefulWidget {
   final int selectedId;
 
-  DetailPage({required this.selectedId});
+  const DetailPage({required this.selectedId});
 
   @override
   _DetailPageState createState() => _DetailPageState();
@@ -248,20 +352,33 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   Map<String, dynamic> sensorData = {}; // Hier werden die Daten gespeichert
+  List<dynamic> chartData = []; // Daten für das Diagramm
+  late Timer timer; // Timer für die periodische Aktualisierung
 
   @override
   void initState() {
     super.initState();
     fetchData(widget.selectedId); // Daten laden, wenn die Seite erstellt wird
+
+    // Timer initialisieren, um die Daten alle 2 Sekunden zu aktualisieren
+    timer = Timer.periodic(const Duration(seconds: 2), (Timer t) {
+      fetchData(widget.selectedId);
+    });
+  }
+
+  @override
+  void dispose() {
+    timer.cancel(); // Timer stoppen, wenn die Seite verworfen wird
+    super.dispose();
   }
 
   Future<void> fetchData(int id) async {
     try {
-      var url = Uri.parse('https://app.recyclingheroes.at:5000/getData');
+      var url = Uri.parse('http://airguard.recyclingheroes.at:5001/getData');
       var response = await http.post(
         url,
         headers: {'Content-Type': 'application/json'},
-        body: jsonEncode({'Controller_ID': id.toString()}),
+        body: jsonEncode({"Controller_ID": id.toString()}),
       );
 
       if (response.statusCode == 200) {
@@ -282,7 +399,7 @@ class _DetailPageState extends State<DetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(65, 130, 69, 100),
+        backgroundColor: const Color.fromRGBO(65, 130, 69, 100),
         title: Image.asset(
           'images/airguard-logo.png',
           height: 50,
@@ -294,19 +411,19 @@ class _DetailPageState extends State<DetailPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              const Padding(padding: EdgeInsets.only(top: 100)),
+              const Padding(padding: EdgeInsets.only(top: 120)),
               Card(
                 elevation: 0,
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   side: BorderSide(color: Colors.black),
-                  borderRadius: const BorderRadius.all(Radius.circular(24)),
+                  borderRadius: BorderRadius.all(Radius.circular(24)),
                 ),
                 child: Center(
                   child: Padding(
                     padding: const EdgeInsets.all(40),
                     child: Text(
                       sensorData.isNotEmpty
-                          ? "Temperatur: ${sensorData['Temperature']}°C"
+                          ? "Temperatur: ${sensorData["Temperature"]}°C"
                           : 'No data available',
                       style: const TextStyle(fontSize: 20),
                     ),
@@ -316,16 +433,16 @@ class _DetailPageState extends State<DetailPage> {
               const Padding(padding: EdgeInsets.only(top: 10)),
               Card(
                 elevation: 0,
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   side: BorderSide(color: Colors.black),
-                  borderRadius: const BorderRadius.all(Radius.circular(24)),
+                  borderRadius: BorderRadius.all(Radius.circular(24)),
                 ),
                 child: Center(
                   child: Padding(
                     padding: const EdgeInsets.all(40),
                     child: Text(
                       sensorData.isNotEmpty
-                          ? "Luftfeuchtigkeit: ${sensorData['Humidity']}g/m^3"
+                          ? "Luftfeuchtigkeit: ${sensorData["Humidity"]}%"
                           : 'No data available',
                       style: const TextStyle(fontSize: 20),
                     ),
@@ -335,22 +452,23 @@ class _DetailPageState extends State<DetailPage> {
               const Padding(padding: EdgeInsets.only(top: 10)),
               Card(
                 elevation: 0,
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   side: BorderSide(color: Colors.black),
-                  borderRadius: const BorderRadius.all(Radius.circular(24)),
+                  borderRadius: BorderRadius.all(Radius.circular(24)),
                 ),
                 child: Center(
                   child: Padding(
                     padding: const EdgeInsets.all(40),
                     child: Text(
                       sensorData.isNotEmpty
-                          ? "CO2: ${sensorData['CO2']}ppm"
+                          ? "CO2: ${sensorData["CO2"]}ppm"
                           : 'No data available',
                       style: const TextStyle(fontSize: 20),
                     ),
                   ),
                 ),
               ),
+
             ],
           ),
         ),
@@ -360,6 +478,8 @@ class _DetailPageState extends State<DetailPage> {
 }
 
 class PartnerPage extends StatelessWidget {
+  const PartnerPage({super.key});
+
   goToWebPage(String urlString) async {
     if (await canLaunch(urlString)) {
       await launch(urlString);
@@ -375,8 +495,8 @@ class PartnerPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Padding(padding: EdgeInsets.only(top: 20)),
-            Text(
+            const Padding(padding: EdgeInsets.only(top: 20)),
+            const Text(
               'Unsere Partner',
               style: TextStyle(
                 fontSize: 24.0,
@@ -432,3 +552,5 @@ class PartnerPage extends StatelessWidget {
     );
   }
 }
+
+

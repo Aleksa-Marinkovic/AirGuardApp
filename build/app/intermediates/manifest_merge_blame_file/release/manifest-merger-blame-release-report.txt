@@ -1,0 +1,110 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.airguard"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+8-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml
+10
+11    <permission
+11-->[androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:22:5-24:47
+12        android:name="com.example.airguard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+12-->[androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:23:9-81
+13        android:protectionLevel="signature" />
+13-->[androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:24:9-44
+14
+15    <uses-permission android:name="com.example.airguard.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+15-->[androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:26:5-97
+15-->[androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:26:22-94
+16
+17    <application
+18        android:name="android.app.Application"
+18-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:5:9-42
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.10.1] C:\Users\Asus\.gradle\caches\transforms-3\f4aafcb6fe35c28ca4efcf9974f14a30\transformed\core-1.10.1\AndroidManifest.xml:28:18-86
+20        android:icon="@mipmap/ic_launcher"
+20-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:6:9-43
+21        android:label="airguard" >
+21-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:4:9-33
+22        <activity
+22-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:7:9-28:20
+23            android:name="com.example.airguard.MainActivity"
+23-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:9:13-41
+24            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+24-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:13:13-163
+25            android:exported="true"
+25-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:10:13-36
+26            android:hardwareAccelerated="true"
+26-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:14:13-47
+27            android:launchMode="singleTop"
+27-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:11:13-43
+28            android:screenOrientation="portrait"
+28-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:8:13-49
+29            android:theme="@style/LaunchTheme"
+29-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:12:13-47
+30            android:windowSoftInputMode="adjustResize" >
+30-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:15:13-55
+31
+32            <!--
+33                 Specifies an Android theme to apply to this Activity as soon as
+34                 the Android process has started. This theme is visible to the user
+35                 while the Flutter UI initializes. After that, this theme continues
+36                 to determine the Window background behind the Flutter UI.
+37            -->
+38            <meta-data
+38-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:20:13-23:17
+39                android:name="io.flutter.embedding.android.NormalTheme"
+39-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:21:15-70
+40                android:resource="@style/NormalTheme" />
+40-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:22:15-52
+41
+42            <intent-filter>
+42-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:24:13-27:29
+43                <action android:name="android.intent.action.MAIN" />
+43-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:25:17-68
+43-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:25:25-66
+44
+45                <category android:name="android.intent.category.LAUNCHER" />
+45-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:26:17-76
+45-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:26:27-74
+46            </intent-filter>
+47        </activity>
+48        <!--
+49             Don't delete the meta-data below.
+50             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+51        -->
+52        <meta-data
+52-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:31:9-33:33
+53            android:name="flutterEmbedding"
+53-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:32:13-44
+54            android:value="2" />
+54-->C:\Users\Asus\Documents\GitHub\AirGuardApp\android\app\src\main\AndroidManifest.xml:33:13-30
+55
+56        <activity
+56-->[:url_launcher_android] C:\Users\Asus\Documents\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:10:9-13:74
+57            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+57-->[:url_launcher_android] C:\Users\Asus\Documents\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:11:13-74
+58            android:exported="false"
+58-->[:url_launcher_android] C:\Users\Asus\Documents\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:12:13-37
+59            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+59-->[:url_launcher_android] C:\Users\Asus\Documents\GitHub\AirGuardApp\build\url_launcher_android\intermediates\merged_manifest\release\AndroidManifest.xml:13:13-71
+60
+61        <uses-library
+61-->[androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+62            android:name="androidx.window.extensions"
+62-->[androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+63            android:required="false" />
+63-->[androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+64        <uses-library
+64-->[androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+65            android:name="androidx.window.sidecar"
+65-->[androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+66            android:required="false" />
+66-->[androidx.window:window:1.0.0-beta04] C:\Users\Asus\.gradle\caches\transforms-3\eb870d180274bc69a097957830f91d7e\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+67    </application>
+68
+69</manifest>

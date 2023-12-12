@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Users\\ppayp\\Dokumente\\GitHub\\AirGuardApp\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mr\\values-mr.xml",
+            "outputFile": "C:\\Users\\Asus\\Documents\\GitHub\\AirGuardApp\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mr\\values-mr.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ppayp\\.gradle\\caches\\transforms-3\\f4aafcb6fe35c28ca4efcf9974f14a30\\transformed\\core-1.10.1\\res\\values-mr\\values-mr.xml",
+                    "source": "C:\\Users\\Asus\\.gradle\\caches\\transforms-3\\f4aafcb6fe35c28ca4efcf9974f14a30\\transformed\\core-1.10.1\\res\\values-mr\\values-mr.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
