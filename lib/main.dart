@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -168,7 +167,6 @@ class HomePage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          const SizedBox(height: 30),
           const Text(
             'Über uns',
             style: TextStyle(
@@ -176,8 +174,25 @@ class HomePage extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
+          const Padding(padding: EdgeInsets.only(top:20)),
+          const Text(
+            'AirGuard ermöglicht Schulen die Darstellung von Luftqualitätsdaten. '
+            'Wir bieten eine benutzerfreundliche Plattform, um Schülern und Lehrern '
+            'Zugang zu wichtigen Umweltdaten zu ermöglichen.',
+            style: TextStyle(
+              fontSize: 18.0,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const Padding(padding: EdgeInsets.only(top:20)),
+          const Text(
+            'Team',
+            style: TextStyle(
+              fontSize: 24.0,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
           const SizedBox(height: 30),
-          // Hier kannst du die kreisförmigen Bilder mit Beschreibungen einfügen
           _buildTeamSection(),
           Divider(),
           ListTile(
@@ -214,6 +229,10 @@ class HomePage extends StatelessWidget {
           image: 'images/adragschnigg.png',
           description: 'Andreas Dragaschnigg - Web developer',
         ),
+        _buildTeamMember(
+          image: 'images/AleksaMarinkovic.jpg',
+          description: 'Aleksa Marinkovic - App developer',
+        ),
         // Füge weitere Teammitglieder hier hinzu
       ],
     );
@@ -243,7 +262,12 @@ class DataPage extends StatefulWidget {
 
 class _DataPageState extends State<DataPage> {
   final List<Map<String, dynamic>> _allSchools = [
-    {"id": 1, "name": "TGM", "address": "Wexstraße 17-19"},
+    {"id": 1, "name": "H1128", "address": "Wexstraße 17-19"},
+    {"id": 2, "name": "H1129", "address": "Wexstraße 17-19"},
+    {"id": 3, "name": "H1130", "address": "Wexstraße 17-19"},
+    {"id": 4, "name": "H1131", "address": "Wexstraße 17-19"},
+    {"id": 5, "name": "H1132", "address": "Wexstraße 17-19"},
+    {"id": 6, "name": "H1133", "address": "Wexstraße 17-19"},
   ];
 
   List<Map<String, dynamic>> _foundSchools = [];
@@ -295,11 +319,7 @@ class _DataPageState extends State<DataPage> {
                     itemBuilder: (context, index) => Card(
                       key: ValueKey(_foundSchools[index]["id"]),
                       color: Color.fromRGBO(150, 150, 150, 100),
-                      elevation: 4,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.all(Radius.circular(20)),
-                      ),
+                      
                       margin: const EdgeInsets.symmetric(vertical: 10),
                       child: ListTile(
                         leading: Text(
@@ -352,23 +372,20 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage> {
   Map<String, dynamic> sensorData = {}; // Hier werden die Daten gespeichert
-  List<dynamic> chartData = []; // Daten für das Diagramm
-  late Timer timer; // Timer für die periodische Aktualisierung
+  late Timer _timer;
 
   @override
   void initState() {
     super.initState();
     fetchData(widget.selectedId); // Daten laden, wenn die Seite erstellt wird
-
-    // Timer initialisieren, um die Daten alle 2 Sekunden zu aktualisieren
-    timer = Timer.periodic(const Duration(seconds: 2), (Timer t) {
-      fetchData(widget.selectedId);
+    _timer = Timer.periodic(const Duration(seconds: 2), (Timer t) {
+      fetchData(widget.selectedId); // Alle 2 Sekunden neue Daten laden
     });
   }
 
   @override
   void dispose() {
-    timer.cancel(); // Timer stoppen, wenn die Seite verworfen wird
+    _timer.cancel(); // Timer bei Widget-Entfernung stoppen, um Speicherlecks zu vermeiden
     super.dispose();
   }
 
@@ -546,11 +563,21 @@ class PartnerPage extends StatelessWidget {
                     'https://oead.at'); // Hier fügst du den Link zur Webseite hinzu
               },
             ),
+            Divider(),
+            IconButton(
+              iconSize: 150,
+              icon: Image.asset(
+                'images/beeproducedTransparent.png',
+              ),
+              onPressed: () async {
+                await goToWebPage(
+                    'https://www.beeproduced.com/de'); // Hier fügst du den Link zur Webseite hinzu
+              },
+            ),
           ],
         ),
       ),
     );
   }
 }
-
 
