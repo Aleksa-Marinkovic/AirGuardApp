@@ -25,6 +25,7 @@ class _PluginRegistrant {
           '`url_launcher_android` threw an error: $err. '
           'The app may not function as expected until you remove this plugin from pubspec.yaml'
         );
+        rethrow;
       }
 
     } else if (Platform.isIOS) {
@@ -35,6 +36,7 @@ class _PluginRegistrant {
           '`url_launcher_ios` threw an error: $err. '
           'The app may not function as expected until you remove this plugin from pubspec.yaml'
         );
+        rethrow;
       }
 
     } else if (Platform.isLinux) {
@@ -45,6 +47,7 @@ class _PluginRegistrant {
           '`url_launcher_linux` threw an error: $err. '
           'The app may not function as expected until you remove this plugin from pubspec.yaml'
         );
+        rethrow;
       }
 
     } else if (Platform.isMacOS) {
@@ -55,6 +58,7 @@ class _PluginRegistrant {
           '`url_launcher_macos` threw an error: $err. '
           'The app may not function as expected until you remove this plugin from pubspec.yaml'
         );
+        rethrow;
       }
 
     } else if (Platform.isWindows) {
@@ -65,6 +69,7 @@ class _PluginRegistrant {
           '`url_launcher_windows` threw an error: $err. '
           'The app may not function as expected until you remove this plugin from pubspec.yaml'
         );
+        rethrow;
       }
 
     }

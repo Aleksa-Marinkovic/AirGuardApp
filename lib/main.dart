@@ -18,10 +18,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: LoginPage(),
     );
   }
 }
+
 class LoginPage extends StatelessWidget {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -85,8 +87,9 @@ class LoginPage extends StatelessWidget {
                 }
               },
               child: Text('Login'),
-               style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromRGBO(65, 130, 69, 100), // Change the button's background color here
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromRGBO(65, 130, 69,
+                    100), // Change the button's background color here
               ),
             ),
           ],
@@ -95,7 +98,6 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
-
 
 class MainPage extends StatefulWidget {
   @override
@@ -174,7 +176,7 @@ class HomePage extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
           ),
-          const Padding(padding: EdgeInsets.only(top:20)),
+          const Padding(padding: EdgeInsets.only(top: 20)),
           const Text(
             'AirGuard ermöglicht Schulen die Darstellung von Luftqualitätsdaten. '
             'Wir bieten eine benutzerfreundliche Plattform, um Schülern und Lehrern '
@@ -184,7 +186,7 @@ class HomePage extends StatelessWidget {
             ),
             textAlign: TextAlign.center,
           ),
-          const Padding(padding: EdgeInsets.only(top:20)),
+          const Padding(padding: EdgeInsets.only(top: 20)),
           const Text(
             'Team',
             style: TextStyle(
@@ -198,13 +200,12 @@ class HomePage extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.email),
             title: const Text('Kontaktiere uns'),
-            subtitle:
-                const Text('Bei Fragen oder Feedback stehen wir zur Verfügung.'),
+            subtitle: const Text(
+                'Bei Fragen oder Feedback stehen wir zur Verfügung.'),
             onTap: () {
               _launchURL('mailto:info@airguard-app.com');
             },
           ),
-          
         ],
       ),
     );
@@ -238,9 +239,10 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildTeamMember({required String image, required String description}) {
+  Widget _buildTeamMember(
+      {required String image, required String description}) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 10.0),
+      margin: const EdgeInsets.symmetric(vertical: 10.0),
       child: Column(
         children: [
           CircleAvatar(
@@ -263,11 +265,11 @@ class DataPage extends StatefulWidget {
 class _DataPageState extends State<DataPage> {
   final List<Map<String, dynamic>> _allSchools = [
     {"id": 1, "name": "H1128", "address": "Wexstraße 17-19"},
-    {"id": 2, "name": "H1129", "address": "Wexstraße 17-19"},
-    {"id": 3, "name": "H1130", "address": "Wexstraße 17-19"},
-    {"id": 4, "name": "H1131", "address": "Wexstraße 17-19"},
-    {"id": 5, "name": "H1132", "address": "Wexstraße 17-19"},
-    {"id": 6, "name": "H1133", "address": "Wexstraße 17-19"},
+    {"id": 2, "name": "HS1", "address": "Wexstraße 17-19"},
+    {"id": 3, "name": "H1129", "address": "Wexstraße 17-19"},
+    {"id": 4, "name": "H1138", "address": "Wexstraße 17-19"},
+    {"id": 5, "name": "H1139", "address": "Wexstraße 17-19"},
+    
   ];
 
   List<Map<String, dynamic>> _foundSchools = [];
@@ -319,7 +321,6 @@ class _DataPageState extends State<DataPage> {
                     itemBuilder: (context, index) => Card(
                       key: ValueKey(_foundSchools[index]["id"]),
                       color: Color.fromRGBO(150, 150, 150, 100),
-                      
                       margin: const EdgeInsets.symmetric(vertical: 10),
                       child: ListTile(
                         leading: Text(
@@ -379,13 +380,14 @@ class _DetailPageState extends State<DetailPage> {
     super.initState();
     fetchData(widget.selectedId); // Daten laden, wenn die Seite erstellt wird
     _timer = Timer.periodic(const Duration(seconds: 2), (Timer t) {
-      fetchData(widget.selectedId); // Alle 2 Sekunden neue Daten laden
+      fetchData(widget.selectedId); // Alle 1 Sekunde neue Daten laden
     });
   }
 
   @override
   void dispose() {
-    _timer.cancel(); // Timer bei Widget-Entfernung stoppen, um Speicherlecks zu vermeiden
+    _timer
+        .cancel(); // Timer bei Widget-Entfernung stoppen, um Speicherlecks zu vermeiden
     super.dispose();
   }
 
@@ -412,86 +414,116 @@ class _DetailPageState extends State<DetailPage> {
     }
   }
 
+  Color getColorForCO2(int co2Value) {
+    if (co2Value >= 0 && co2Value <= 999) {
+      return Colors.green;
+    } else if (co2Value >= 1000 && co2Value <= 1399) {
+      return Colors.orange;
+    } else {
+      return Colors.red;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(65, 130, 69, 100),
-        title: Image.asset(
-          'images/airguard-logo.png',
-          height: 50,
-        ),
-        centerTitle: true,
+  return Scaffold(
+    appBar: AppBar(
+      backgroundColor: const Color.fromRGBO(65, 130, 69, 100),
+      title: Image.asset(
+        'images/airguard-logo.png',
+        height: 50,
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Padding(padding: EdgeInsets.only(top: 120)),
-              Card(
-                elevation: 0,
-                shape: const RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.black),
-                  borderRadius: BorderRadius.all(Radius.circular(24)),
-                ),
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(40),
-                    child: Text(
-                      sensorData.isNotEmpty
-                          ? "Temperatur: ${sensorData["Temperature"]}°C"
-                          : 'No data available',
-                      style: const TextStyle(fontSize: 20),
-                    ),
+      centerTitle: true,
+    ),
+    body: SingleChildScrollView(
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Padding(padding: const EdgeInsets.only(top: 100)),
+            Card(
+              elevation: 0,
+              shape: const RoundedRectangleBorder(
+                side: BorderSide(color: Colors.black),
+                borderRadius: BorderRadius.all(Radius.circular(24)),
+              ),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(40),
+                  child: Column(
+                    children: [
+                      Icon(Icons.thermostat, size: 40, color: Colors.black),
+                      const SizedBox(height: 10),
+                      Text(
+                        sensorData.isNotEmpty
+                            ? "Temperatur: ${sensorData["Temperature"]}°C"
+                            : 'No data available',
+                        style: const TextStyle(fontSize: 20),
+                      ),
+                    ],
                   ),
                 ),
               ),
-              const Padding(padding: EdgeInsets.only(top: 10)),
-              Card(
-                elevation: 0,
-                shape: const RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.black),
-                  borderRadius: BorderRadius.all(Radius.circular(24)),
-                ),
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(40),
-                    child: Text(
-                      sensorData.isNotEmpty
-                          ? "Luftfeuchtigkeit: ${sensorData["Humidity"]}%"
-                          : 'No data available',
-                      style: const TextStyle(fontSize: 20),
-                    ),
+            ),
+            const SizedBox(height: 20),
+            Card(
+              elevation: 0,
+              shape: const RoundedRectangleBorder(
+                side: BorderSide(color: Colors.black),
+                borderRadius: BorderRadius.all(Radius.circular(24)),
+              ),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(40),
+                  child: Column(
+                    children: [
+                      Icon(Icons.water_damage, size: 40, color: Colors.black),
+                      const SizedBox(height: 10),
+                      Text(
+                        sensorData.isNotEmpty
+                            ? "Luftfeuchtigkeit: ${sensorData["Humidity"]}%"
+                            : 'No data available',
+                        style: const TextStyle(fontSize: 20),
+                      ),
+                    ],
                   ),
                 ),
               ),
-              const Padding(padding: EdgeInsets.only(top: 10)),
-              Card(
-                elevation: 0,
-                shape: const RoundedRectangleBorder(
-                  side: BorderSide(color: Colors.black),
-                  borderRadius: BorderRadius.all(Radius.circular(24)),
-                ),
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(40),
-                    child: Text(
-                      sensorData.isNotEmpty
-                          ? "CO2: ${sensorData["CO2"]}ppm"
-                          : 'No data available',
-                      style: const TextStyle(fontSize: 20),
-                    ),
+            ),
+            const SizedBox(height: 20),
+            Card(
+              elevation: 0,
+              shape: const RoundedRectangleBorder(
+                side: BorderSide(color: Colors.black),
+                borderRadius: BorderRadius.all(Radius.circular(24)),
+              ),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(40),
+                  child: Column(
+                    children: [
+                      Icon(Icons.cloud, size: 40, color: getColorForCO2(sensorData["CO2"] ?? 0)),
+                      const SizedBox(height: 10),
+                      Text(
+                        sensorData.isNotEmpty
+                            ? "CO2: ${sensorData["CO2"]}ppm"
+                            : 'No data available',
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: getColorForCO2(sensorData["CO2"] ?? 0),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
-
-            ],
-          ),
+            ),
+          ],
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 }
 
 class PartnerPage extends StatelessWidget {
@@ -580,4 +612,3 @@ class PartnerPage extends StatelessWidget {
     );
   }
 }
-

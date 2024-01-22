@@ -1,4 +1,4 @@
-#Mon Dec 18 19:38:09 CET 2023
-base.0=C\:\\Users\\Aleksa\\Documents\\GitHub\\AirGuardApp\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-path.0=classes.dex
+#Tue Jan 16 08:27:09 CET 2024
+base.0=C\:\\Users\\Asus\\Documents\\GitHub\\AirGuardApp\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.0=classes.dex
+path.0=classes.dex
