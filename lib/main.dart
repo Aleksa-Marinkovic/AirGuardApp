@@ -63,33 +63,55 @@ class LoginPage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                // Hier füge deine Authentifizierungslogik ein
-                // Beispiel: Überprüfung von Benutzername und Passwort
+              onPressed: () async {
                 String username = _usernameController.text.trim();
                 String password = _passwordController.text.trim();
 
-                // Beispiel: Wenn Benutzername und Passwort stimmen, navigiere zur Hauptseite
-                if (username == 'tgm' && password == 'tgm') {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => MainPage()),
+                // Erstelle ein Map-Objekt mit den Anmeldeinformationen
+                Map<String, String> credentials = {
+                  'username': username,
+                  'password': password,
+                };
+
+                try {
+                  // Sende den POST-Request an die angegebene URL
+                  http.Response response = await http.post(
+                    Uri.parse('https://airguard.recyclingheroes.at:5000/login'),
+                    body: credentials,
                   );
-                } else {
-                  // Anzeige einer Fehlermeldung oder anderen Aktion bei fehlgeschlagenem Login
-                  // Beispiel: Anzeige einer SnackBar
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Ungültige Anmeldeinformationen'),
-                      duration: Duration(seconds: 3),
-                    ),
-                  );
+
+                  // Überprüfe, ob die Anmeldung erfolgreich war (zum Beispiel anhand des Statuscodes)
+                  if (response.statusCode == 200) {
+                    // Konvertiere die Antwort in JSON
+                    Map<String, dynamic> data = json.decode(response.body);
+
+                    // Extrahiere die ID aus der Antwort
+                    int userId = data['Controller_ID'][0];
+
+                    // Navigiere zur MainPage und übergebe die ID
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MainPage(userId: userId),
+                      ),
+                    );
+                  } else {
+                    // Anzeige einer Fehlermeldung oder anderen Aktion bei fehlgeschlagenem Login
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Ungültige Anmeldeinformationen'),
+                        duration: Duration(seconds: 3),
+                      ),
+                    );
+                  }
+                } catch (error) {
+                  print('Error: $error');
+                  // Handle den Fehler entsprechend
                 }
               },
               child: Text('Login'),
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromRGBO(65, 130, 69,
-                    100), // Change the button's background color here
+                backgroundColor: Color.fromRGBO(65, 130, 69, 100),
               ),
             ),
           ],
@@ -100,6 +122,9 @@ class LoginPage extends StatelessWidget {
 }
 
 class MainPage extends StatefulWidget {
+  final int userId;
+
+  MainPage({required this.userId});
   @override
   _MainPageState createState() => _MainPageState();
 }
@@ -107,14 +132,15 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
 
-  final List<Widget> _pages = [
-    HomePage(),
-    DataPage(),
-    PartnerPage(),
-  ];
+  List<Widget> _pages = [];
 
   @override
   Widget build(BuildContext context) {
+    _pages = [
+    DetailPage(selectedId: widget.userId),
+    HomePage(),
+    PartnerPage(),
+    ];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(65, 130, 69, 100),
@@ -136,11 +162,11 @@ class _MainPageState extends State<MainPage> {
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: 'Datenausgabe',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.data_usage),
-            label: 'Datenausgabe',
+            label: 'About Us',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.group),
@@ -164,49 +190,52 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          const Text(
-            'Über uns',
-            style: TextStyle(
-              fontSize: 24.0,
-              fontWeight: FontWeight.w600,
+
+    return Center(
+      child: SingleChildScrollView(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            const Text(
+              'Über uns',
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.w600,
+              ),
             ),
-          ),
-          const Padding(padding: EdgeInsets.only(top: 20)),
-          const Text(
-            'AirGuard ermöglicht Schulen die Darstellung von Luftqualitätsdaten. '
-            'Wir bieten eine benutzerfreundliche Plattform, um Schülern und Lehrern '
-            'Zugang zu wichtigen Umweltdaten zu ermöglichen.',
-            style: TextStyle(
-              fontSize: 18.0,
+            const Padding(padding: EdgeInsets.only(top: 20)),
+            const Text(
+              'AirGuard ermöglicht Schulen die Darstellung von Luftqualitätsdaten. '
+              'Wir bieten eine benutzerfreundliche Plattform, um Schülern und Lehrern '
+              'Zugang zu wichtigen Umweltdaten zu ermöglichen.',
+              style: TextStyle(
+                fontSize: 18.0,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
-          ),
-          const Padding(padding: EdgeInsets.only(top: 20)),
-          const Text(
-            'Team',
-            style: TextStyle(
-              fontSize: 24.0,
-              fontWeight: FontWeight.w600,
+            const Padding(padding: EdgeInsets.only(top: 20)),
+            const Text(
+              'Team',
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.w600,
+              ),
             ),
-          ),
-          const SizedBox(height: 30),
-          _buildTeamSection(),
-          Divider(),
-          ListTile(
-            leading: const Icon(Icons.email),
-            title: const Text('Kontaktiere uns'),
-            subtitle: const Text(
-                'Bei Fragen oder Feedback stehen wir zur Verfügung.'),
-            onTap: () {
-              _launchURL('mailto:info@airguard-app.com');
-            },
-          ),
-        ],
+            const SizedBox(height: 30),
+            _buildTeamSection(),
+            Divider(),
+            ListTile(
+              leading: const Icon(Icons.email),
+              title: const Text('Kontaktiere uns'),
+              subtitle: const Text(
+                  'Bei Fragen oder Feedback stehen wir zur Verfügung.'),
+              onTap: () {
+                _launchURL('mailto:info@airguard-app.com');
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -257,111 +286,6 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class DataPage extends StatefulWidget {
-  @override
-  _DataPageState createState() => _DataPageState();
-}
-
-class _DataPageState extends State<DataPage> {
-  final List<Map<String, dynamic>> _allSchools = [
-    {"id": 1, "name": "H1128", "address": "Wexstraße 17-19"},
-    {"id": 2, "name": "HS1", "address": "Wexstraße 17-19"},
-    {"id": 3, "name": "H1129", "address": "Wexstraße 17-19"},
-    {"id": 4, "name": "H1138", "address": "Wexstraße 17-19"},
-    {"id": 5, "name": "H1139", "address": "Wexstraße 17-19"},
-    
-  ];
-
-  List<Map<String, dynamic>> _foundSchools = [];
-  @override
-  initState() {
-    _foundSchools = _allSchools;
-    super.initState();
-  }
-
-  void _runFilter(String enteredKeyword) {
-    if (enteredKeyword.isEmpty) {
-      // Wenn das Suchfeld leer ist, zeige alle Schulen an
-      setState(() {
-        _foundSchools = _allSchools;
-      });
-    } else {
-      // Filtere die Schulen nach dem eingegebenen Schlüsselwort
-      setState(() {
-        _foundSchools = _allSchools
-            .where((school) => school["name"]
-                .toLowerCase()
-                .contains(enteredKeyword.toLowerCase()))
-            .toList();
-      });
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 20,
-          ),
-          TextField(
-            onChanged: (value) => _runFilter(value),
-            decoration: const InputDecoration(
-                labelText: 'Search', suffixIcon: Icon(Icons.search)),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Expanded(
-            child: _foundSchools.isNotEmpty
-                ? ListView.builder(
-                    itemCount: _foundSchools.length,
-                    itemBuilder: (context, index) => Card(
-                      key: ValueKey(_foundSchools[index]["id"]),
-                      color: Color.fromRGBO(150, 150, 150, 100),
-                      margin: const EdgeInsets.symmetric(vertical: 10),
-                      child: ListTile(
-                        leading: Text(
-                          _foundSchools[index]["id"].toString(),
-                          style: const TextStyle(
-                              fontSize: 24, color: Colors.white),
-                        ),
-                        title: Text(_foundSchools[index]['name'],
-                            style: TextStyle(color: Colors.white)),
-                        subtitle: Text(
-                            '${_foundSchools[index]["address"].toString()}',
-                            style: TextStyle(color: Colors.white)),
-                        trailing: IconButton(
-                          icon: Icon(Icons.arrow_forward),
-                          color: Colors.white,
-                          onPressed: () {
-                            // Speichern der ausgewählten ID
-                            int selectedId = _foundSchools[index]["id"];
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    DetailPage(selectedId: selectedId),
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                  )
-                : const Text(
-                    'No results found',
-                    style: TextStyle(fontSize: 24),
-                  ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class DetailPage extends StatefulWidget {
   final int selectedId;
 
@@ -374,13 +298,21 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   Map<String, dynamic> sensorData = {}; // Hier werden die Daten gespeichert
   late Timer _timer;
+  late Timer _timer2;
+  bool isPopupOpen = false; // Variable, um den Popup-Zustand zu verfolgen
 
   @override
   void initState() {
     super.initState();
-    fetchData(widget.selectedId); // Daten laden, wenn die Seite erstellt wird
+    fetchData(widget.selectedId);
+     // Daten laden, wenn die Seite erstellt wird
     _timer = Timer.periodic(const Duration(seconds: 2), (Timer t) {
       fetchData(widget.selectedId); // Alle 1 Sekunde neue Daten laden
+    });
+    _timer2 = Timer.periodic(const Duration(seconds: 20), (Timer t) {
+      if ((sensorData["CO2"] ?? 0) > 1399) {
+        showVentilationPopup();
+      }
     });
   }
 
@@ -405,6 +337,7 @@ class _DetailPageState extends State<DetailPage> {
         setState(() {
           sensorData = data;
         });
+        
       } else {
         print('Request failed with status: ${response.statusCode}');
         print('Response: ${response.body}');
@@ -423,24 +356,42 @@ class _DetailPageState extends State<DetailPage> {
       return Colors.red;
     }
   }
+  void showVentilationPopup() {
+    if (isPopupOpen) {
+      return;
+    }
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        isPopupOpen = true;
+        return AlertDialog(
+          title: Text('Lüften empfohlen'),
+          content: Text('Die CO2-Werte sind über 1400 ppm gestiegen. Lüften Sie den Raum, um die Luftqualität zu verbessern.'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                isPopupOpen = false;
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
   return Scaffold(
-    appBar: AppBar(
-      backgroundColor: const Color.fromRGBO(65, 130, 69, 100),
-      title: Image.asset(
-        'images/airguard-logo.png',
-        height: 50,
-      ),
-      centerTitle: true,
-    ),
-    body: SingleChildScrollView(
-      child: Center(
+    body: Center(
+      
+      child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Padding(padding: const EdgeInsets.only(top: 100)),
+            
             Card(
               elevation: 0,
               shape: const RoundedRectangleBorder(
@@ -477,13 +428,16 @@ class _DetailPageState extends State<DetailPage> {
                   padding: const EdgeInsets.all(40),
                   child: Column(
                     children: [
-                      Icon(Icons.water_damage, size: 40, color: Colors.black),
+                      Icon(Icons.cloud, size: 40, color: getColorForCO2(sensorData["CO2"] ?? 0)),
                       const SizedBox(height: 10),
                       Text(
                         sensorData.isNotEmpty
-                            ? "Luftfeuchtigkeit: ${sensorData["Humidity"]}%"
+                            ? "CO2: ${sensorData["CO2"]}ppm"
                             : 'No data available',
-                        style: const TextStyle(fontSize: 20),
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: getColorForCO2(sensorData["CO2"] ?? 0),
+                        ),
                       ),
                     ],
                   ),
@@ -502,22 +456,20 @@ class _DetailPageState extends State<DetailPage> {
                   padding: const EdgeInsets.all(40),
                   child: Column(
                     children: [
-                      Icon(Icons.cloud, size: 40, color: getColorForCO2(sensorData["CO2"] ?? 0)),
+                      Icon(Icons.water_damage, size: 40, color: Colors.black),
                       const SizedBox(height: 10),
                       Text(
                         sensorData.isNotEmpty
-                            ? "CO2: ${sensorData["CO2"]}ppm"
+                            ? "Luftfeuchtigkeit: ${sensorData["Humidity"]}%"
                             : 'No data available',
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: getColorForCO2(sensorData["CO2"] ?? 0),
-                        ),
+                        style: const TextStyle(fontSize: 20),
                       ),
                     ],
                   ),
                 ),
               ),
             ),
+            
           ],
         ),
       ),
@@ -543,6 +495,7 @@ class PartnerPage extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             const Padding(padding: EdgeInsets.only(top: 20)),
             const Text(
@@ -553,9 +506,10 @@ class PartnerPage extends StatelessWidget {
               ),
             ),
             IconButton(
-              iconSize: 150,
-              icon: Image.asset(
-                'images/TGM_Logo.png',
+              icon: Container(
+              width: 200,
+              height: 200,
+              child: Image.asset('images/TGM_Logo.png'),
               ),
               onPressed: () async {
                 await goToWebPage(
@@ -564,9 +518,10 @@ class PartnerPage extends StatelessWidget {
             ),
             Divider(),
             IconButton(
-              iconSize: 150,
-              icon: Image.asset(
-                'images/BMBWF_Logo_srgb.png',
+              icon: Container(
+              width: 200,
+              height: 200,
+              child: Image.asset('images/BMBWF_Logo_srgb.png'),
               ),
               onPressed: () async {
                 await goToWebPage(
@@ -575,10 +530,12 @@ class PartnerPage extends StatelessWidget {
             ),
             Divider(),
             IconButton(
-              iconSize: 150,
-              icon: Image.asset(
-                'images/TU-Logo-Austria_CMYK.png',
-              ),
+              icon: Container(
+              width: 200,
+              height: 200,
+              child: Image.asset('images/TU-Logo-Austria_CMYK.png'),
+            ),
+              
               onPressed: () async {
                 await goToWebPage(
                     'https://www.tuwien.at'); // Hier fügst du den Link zur Webseite hinzu
@@ -586,9 +543,10 @@ class PartnerPage extends StatelessWidget {
             ),
             Divider(),
             IconButton(
-              iconSize: 150,
-              icon: Image.asset(
-                'images/OeAD_LogoUnterzeile_DE_RGB.png',
+              icon: Container(
+              width: 200,
+              height: 200,
+              child: Image.asset('images/OeAD_LogoUnterzeile_DE_RGB.png'),
               ),
               onPressed: () async {
                 await goToWebPage(
@@ -597,10 +555,12 @@ class PartnerPage extends StatelessWidget {
             ),
             Divider(),
             IconButton(
-              iconSize: 150,
-              icon: Image.asset(
-                'images/beeproducedTransparent.png',
+              icon: Container(
+              width: 200,
+              height: 200,
+              child: Image.asset('images/beeproducedTransparent.png'),
               ),
+              
               onPressed: () async {
                 await goToWebPage(
                     'https://www.beeproduced.com/de'); // Hier fügst du den Link zur Webseite hinzu
