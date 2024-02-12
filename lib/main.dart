@@ -1,16 +1,28 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:awesome_notifications/awesome_notifications.dart';
+
 
 void main() {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
+  AwesomeNotifications().initialize(
+  null,
+  [
+    NotificationChannel(
+      channelKey: "basicchannel", // Ändere den Kanalschlüssel hier entsprechend
+      channelName: "channelname",
+      channelDescription: "description"
+    )
+  ],
+  debug: true
+);
   runApp(MyApp());
 }
 
@@ -303,17 +315,22 @@ class _DetailPageState extends State<DetailPage> {
 
   @override
   void initState() {
-    super.initState();
+    AwesomeNotifications().isNotificationAllowed().then((isAllowed){
+        if(!isAllowed){
+          AwesomeNotifications().requestPermissionToSendNotifications();
+        }
+    });
     fetchData(widget.selectedId);
      // Daten laden, wenn die Seite erstellt wird
     _timer = Timer.periodic(const Duration(seconds: 2), (Timer t) {
       fetchData(widget.selectedId); // Alle 1 Sekunde neue Daten laden
     });
-    _timer2 = Timer.periodic(const Duration(seconds: 20), (Timer t) {
+    _timer2 = Timer.periodic(const Duration(seconds: 900), (Timer t) {
       if ((sensorData["CO2"] ?? 0) > 1399) {
-        showVentilationPopup();
+        triggerNotification();
       }
     });
+    super.initState();  
   }
 
   @override
@@ -325,7 +342,7 @@ class _DetailPageState extends State<DetailPage> {
 
   Future<void> fetchData(int id) async {
     try {
-      var url = Uri.parse('http://airguard.recyclingheroes.at:5001/getData');
+      var url = Uri.parse('https://airguard.recyclingheroes.at:5000/getData');
       var response = await http.post(
         url,
         headers: {'Content-Type': 'application/json'},
@@ -366,7 +383,7 @@ class _DetailPageState extends State<DetailPage> {
         isPopupOpen = true;
         return AlertDialog(
           title: Text('Lüften empfohlen'),
-          content: Text('Die CO2-Werte sind über 1400 ppm gestiegen. Lüften Sie den Raum, um die Luftqualität zu verbessern.'),
+          content: Text('Lüften Sie den Raum, um die Luftqualität zu verbessern.'),
           actions: <Widget>[
             TextButton(
               onPressed: () {
@@ -380,6 +397,10 @@ class _DetailPageState extends State<DetailPage> {
       },
     );
   }
+  triggerNotification(){
+    AwesomeNotifications().createNotification(content: NotificationContent(id:10,channelKey: "basicchannel",title: "Lüften empfohlen",body: "Die CO2-Werte sind über 1400 ppm gestiegen. Lüften Sie den Raum, um die Luftqualität zu verbessern."));
+  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -407,7 +428,7 @@ class _DetailPageState extends State<DetailPage> {
                       const SizedBox(height: 10),
                       Text(
                         sensorData.isNotEmpty
-                            ? "Temperatur: ${sensorData["Temperature"]}°C"
+                            ? "Temperatur: ${sensorData["Temperature"]} °C"
                             : 'No data available',
                         style: const TextStyle(fontSize: 20),
                       ),
@@ -432,8 +453,9 @@ class _DetailPageState extends State<DetailPage> {
                       const SizedBox(height: 10),
                       Text(
                         sensorData.isNotEmpty
-                            ? "CO2: ${sensorData["CO2"]}ppm"
+                            ? "CO2: ${sensorData["CO2"]} ppm"
                             : 'No data available',
+                            
                         style: TextStyle(
                           fontSize: 20,
                           color: getColorForCO2(sensorData["CO2"] ?? 0),
@@ -460,7 +482,7 @@ class _DetailPageState extends State<DetailPage> {
                       const SizedBox(height: 10),
                       Text(
                         sensorData.isNotEmpty
-                            ? "Luftfeuchtigkeit: ${sensorData["Humidity"]}%"
+                            ? "Luftfeuchtigkeit: ${sensorData["Humidity"]} %"
                             : 'No data available',
                         style: const TextStyle(fontSize: 20),
                       ),

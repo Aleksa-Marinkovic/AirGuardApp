@@ -8,6 +8,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "awesome_notifications",
+      "rootUri": "file:///C:/Users/Aleksa/AppData/Local/Pub/Cache/hosted/pub.dev/awesome_notifications-0.9.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "boolean_selector",
       "rootUri": "file:///C:/Users/Aleksa/AppData/Local/Pub/Cache/hosted/pub.dev/boolean_selector-2.1.1",
       "packageUri": "lib/",
@@ -80,6 +86,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "intl",
+      "rootUri": "file:///C:/Users/Aleksa/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.19.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "lints",
       "rootUri": "file:///C:/Users/Aleksa/AppData/Local/Pub/Cache/hosted/pub.dev/lints-2.0.1",
       "packageUri": "lib/",
@@ -111,9 +123,9 @@
     },
     {
       "name": "plugin_platform_interface",
-      "rootUri": "file:///C:/Users/Aleksa/AppData/Local/Pub/Cache/hosted/pub.dev/plugin_platform_interface-2.1.5",
+      "rootUri": "file:///C:/Users/Aleksa/AppData/Local/Pub/Cache/hosted/pub.dev/plugin_platform_interface-2.1.8",
       "packageUri": "lib/",
-      "languageVersion": "2.18"
+      "languageVersion": "3.0"
     },
     {
       "name": "sky_engine",
@@ -230,7 +242,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2024-01-22T18:50:49.356383Z",
+  "generated": "2024-02-12T16:05:54.555259Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }
