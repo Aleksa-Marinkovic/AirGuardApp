@@ -1,10 +1,12 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 
 void main() {
@@ -22,8 +24,16 @@ void main() {
     )
   ],
   debug: true
-);
+  );
+   HttpOverrides.global = MyHttpOverrides();
   runApp(MyApp());
+}
+class MyHttpOverrides extends HttpOverrides{
+  @override
+  HttpClient createHttpClient(SecurityContext? context){
+    return super.createHttpClient(context)
+      ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -45,9 +55,12 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(65, 130, 69, 100),
-        title: Image.asset(
-          'images/airguard-logo.png',
-          height: 50,
+        title: Padding(
+          padding: EdgeInsets.symmetric(vertical: 8.0), // Ändern Sie die Werte nach Bedarf
+          child: Image.asset(
+            'images/airguard-logo.png',
+            height: 50,
+          ),
         ),
         centerTitle: true,
       ),
@@ -156,9 +169,12 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(65, 130, 69, 100),
-        title: Image.asset(
-          'images/airguard-logo.png',
-          height: 50,
+        title: Padding(
+          padding: EdgeInsets.symmetric(vertical: 100.0), // Ändern Sie die Werte nach Bedarf
+          child: Image.asset(
+            'images/airguard-logo.png',
+            height: 50,
+          ),
         ),
         centerTitle: true,
       ),
@@ -243,7 +259,7 @@ class HomePage extends StatelessWidget {
               subtitle: const Text(
                   'Bei Fragen oder Feedback stehen wir zur Verfügung.'),
               onTap: () {
-                _launchURL('mailto:info@airguard-app.com');
+                _launchURL('mailto:amarinkovic@student.tgm.ac.at');
               },
             ),
           ],
@@ -325,7 +341,7 @@ class _DetailPageState extends State<DetailPage> {
     _timer = Timer.periodic(const Duration(seconds: 2), (Timer t) {
       fetchData(widget.selectedId); // Alle 1 Sekunde neue Daten laden
     });
-    _timer2 = Timer.periodic(const Duration(seconds: 900), (Timer t) {
+    _timer2 = Timer.periodic(const Duration(seconds: 300), (Timer t) {
       if ((sensorData["CO2"] ?? 0) > 1399) {
         triggerNotification();
       }
@@ -354,7 +370,7 @@ class _DetailPageState extends State<DetailPage> {
         setState(() {
           sensorData = data;
         });
-        
+      
       } else {
         print('Request failed with status: ${response.statusCode}');
         print('Response: ${response.body}');
@@ -501,7 +517,10 @@ class _DetailPageState extends State<DetailPage> {
 }
 
 class PartnerPage extends StatelessWidget {
-  const PartnerPage({super.key});
+  
+  PartnerPage({super.key});
+
+  
 
   goToWebPage(String urlString) async {
     if (await canLaunch(urlString)) {
@@ -510,85 +529,69 @@ class PartnerPage extends StatelessWidget {
       throw 'Webseite $urlString konnte nicht geladen werden';
     }
   }
+  final List<String> logos = [
+  'images/TGM_Logo.png',
+  'images/BMBWF_Logo_srgb.png',
+  'images/TU-Logo-Austria_CMYK.png',
+  'images/OeAD_LogoUnterzeile_DE_RGB.png',
+  'images/beeproducedTransparent.png',
+
+];
+
+  final List<String> webLinks = [
+  'https://www.tgm.ac.at',
+  'https://www.bmbwf.gv.at',
+  'https://www.tuwien.at',
+  'https://oead.at',
+  'https://www.beeproduced.com/de',
+];
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            const Padding(padding: EdgeInsets.only(top: 20)),
-            const Text(
-              'Unsere Partner',
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(
+          child: Text(
+                'Unsere Partner',
+                style: TextStyle(
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            ),
-            IconButton(
-              icon: Container(
-              width: 200,
-              height: 200,
-              child: Image.asset('images/TGM_Logo.png'),
+        ),
+        
+      ),
+      body: Center(
+        child: CarouselSlider.builder(
+          itemCount: logos.length,
+          options: CarouselOptions(
+            aspectRatio: 16 / 9,
+            viewportFraction: 0.9,
+            initialPage: 0,
+            enableInfiniteScroll: true,
+            autoPlay: true,
+          ),
+          itemBuilder: (BuildContext context, int index, int realIndex) {
+            return GestureDetector(
+              onTap: () async {
+                await goToWebPage(webLinks[index]);
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                margin: EdgeInsets.symmetric(horizontal: 5.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                   // Hintergrundfarbe hinzugefügt
+                ),
+                child: Image.asset(
+                  logos[index],
+                  fit: BoxFit.contain,
+                  width: double.infinity, // Bildbreite auf Containerbreite setzen
+                  height: double.infinity, // Bildhöhe auf Containerhöhe setzen
+                ),
               ),
-              onPressed: () async {
-                await goToWebPage(
-                    'https://www.tgm.ac.at'); // Hier fügst du den Link zur Webseite hinzu
-              },
-            ),
-            Divider(),
-            IconButton(
-              icon: Container(
-              width: 200,
-              height: 200,
-              child: Image.asset('images/BMBWF_Logo_srgb.png'),
-              ),
-              onPressed: () async {
-                await goToWebPage(
-                    'https://www.bmbwf.gv.at'); // Hier fügst du den Link zur Webseite hinzu
-              },
-            ),
-            Divider(),
-            IconButton(
-              icon: Container(
-              width: 200,
-              height: 200,
-              child: Image.asset('images/TU-Logo-Austria_CMYK.png'),
-            ),
-              
-              onPressed: () async {
-                await goToWebPage(
-                    'https://www.tuwien.at'); // Hier fügst du den Link zur Webseite hinzu
-              },
-            ),
-            Divider(),
-            IconButton(
-              icon: Container(
-              width: 200,
-              height: 200,
-              child: Image.asset('images/OeAD_LogoUnterzeile_DE_RGB.png'),
-              ),
-              onPressed: () async {
-                await goToWebPage(
-                    'https://oead.at'); // Hier fügst du den Link zur Webseite hinzu
-              },
-            ),
-            Divider(),
-            IconButton(
-              icon: Container(
-              width: 200,
-              height: 200,
-              child: Image.asset('images/beeproducedTransparent.png'),
-              ),
-              
-              onPressed: () async {
-                await goToWebPage(
-                    'https://www.beeproduced.com/de'); // Hier fügst du den Link zur Webseite hinzu
-              },
-            ),
-          ],
+            );
+          },
         ),
       ),
     );
